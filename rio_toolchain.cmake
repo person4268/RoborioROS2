@@ -10,7 +10,7 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 set(ARM_PREFIX arm-frc${YEAR}-linux-gnueabi)
 
 set(USER_HOME $ENV{HOME})
-set(WPI_DIR ${USER_HOME}/wpilib/${YEAR})
+set(WPI_DIR ${USER_HOME}/.gradle/toolchains/frc/${YEAR})
 # message("Using wpilib dir ${WPI_DIR}")
 
 set(CMAKE_SYSROOT ${WPI_DIR}/roborio/${ARM_PREFIX})

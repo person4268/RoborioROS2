@@ -5,7 +5,7 @@ export TOOLCHAIN=$(pwd)/rio_toolchain.cmake
 export COLCON_META=$(pwd)/colcon.meta
 export YEAR=2022
 export ARM_PREFIX=arm-frc${YEAR}-linux-gnueabi
-export CROSS_ROOT=${HOME}/wpilib/${YEAR}/roborio/${ARM_PREFIX}
+export CROSS_ROOT=${HOME}/.gradle/toolchains/frc/${YEAR}/roborio/${ARM_PREFIX}
 export DDS_IMPL=CycloneDDS
 
 # pull in cross root deps and compilier
@@ -16,8 +16,8 @@ echo "Configuring the installation"
 ./mark_ignore_deps.sh
 
 # clean the last build if it exists
-echo "Cleaning prior build artifacts"
-rm -rf build install log
+#echo "Cleaning prior build artifacts"
+#rm -rf build install log
 
 # Create the dirs needed for install processes that pre-run
 mkdir -p install/lib install/include

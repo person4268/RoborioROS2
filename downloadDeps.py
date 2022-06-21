@@ -232,7 +232,7 @@ if __name__ == "__main__":
     USER_HOME = os.path.expanduser('~')
     YEAR = str(datetime.date(datetime.now()).year)
     ARM_PREFIX = "arm-frc{}-linux-gnueabi".format(YEAR)
-    CROSS_ROOT = os.path.join(USER_HOME, "wpilib", YEAR, "roborio", ARM_PREFIX)
+    CROSS_ROOT = os.path.join(USER_HOME, ".gradle/toolchains/frc/", YEAR, "roborio", ARM_PREFIX)
     CWD = os.getcwd()
 
     # download deps into cross root
