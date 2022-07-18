@@ -3,3 +3,7 @@ install
 log
 extra_libs
 rclcpp_rio.tar
+
+asio/
+eigen/
+.vscode*

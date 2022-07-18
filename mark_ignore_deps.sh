@@ -14,15 +14,16 @@ pushd $(pwd)/src > /dev/null
     touch ./ros2/spdlog_vendor/COLCON_IGNORE
 
     touch ./ros2/rclcpp/rclcpp_lifecycle/COLCON_IGNORE
-    touch ./ros2/rclcpp/rclcpp_components/COLCON_IGNORE
+    #touch ./ros2/rclcpp/rclcpp_components/COLCON_IGNORE
+    
+    touch ./ros2/geometry2/examples_tf2_py/COLCON_IGNORE
+    touch ./ros2/geometry2/tf2_py/COLCON_IGNORE
+    touch ./ros2/geometry2/tf2_ros_py/COLCON_IGNORE
+    touch ./ros2/geometry2/tf2_bullet/COLCON_IGNORE
+
+    touch ./ros2/orocos_kdl_vendor/python_orocos_kdl_vendor/COLCON_IGNORE
 
     touch ./ros2_tracing/ros2_tracing/tracetools_test/COLCON_IGNORE
-
-    # ignore our local packages
-    touch ./worbots/LimelightROS2/limelight_driver/COLCON_IGNORE
-    touch ./worbots/RosPathGen/rospathgen/COLCON_IGNORE
-    touch ./worbots/AutonomousBehaviorTree/autonomous_behavior_tree/COLCON_IGNORE
-    touch ./worbots/robotTool/robot_tools/COLCON_IGNORE
 
     if [[ "$DDS_IMPL" == *FastRTPS* ]]; then
         # ignore cyclone and its deps

@@ -6,7 +6,7 @@ export COLCON_META=$(pwd)/colcon.meta
 export YEAR=2022
 export ARM_PREFIX=arm-frc${YEAR}-linux-gnueabi
 export CROSS_ROOT=${HOME}/.gradle/toolchains/frc/${YEAR}/roborio/${ARM_PREFIX}
-export DDS_IMPL=CycloneDDS
+export DDS_IMPL=FastRTPS
 
 # pull in cross root deps and compilier
 echo "Confirguring cross compile sysroot"
@@ -14,6 +14,9 @@ python3 ./downloadDeps.py
 
 echo "Configuring the installation"
 ./mark_ignore_deps.sh
+
+./build_asio.sh
+./build_eigen.sh
 
 # clean the last build if it exists
 #echo "Cleaning prior build artifacts"
@@ -24,7 +27,9 @@ mkdir -p install/lib install/include
 
 if [[ "$DDS_IMPL" == *FastRTPS* ]]; then
 	# build tinyxml2 for the target and copy to sysroot
-	source ./build_target_tinyxml.sh 
+	source ./build_target_tinyxml.sh
+        # Use a newer (patched) version of FindThreads.cmake since they vendor their own and it has bugs
+        cp ./FindThreads-patched.cmake /src/eprosima/Fast-DDS/cmake/modules/FindThreads.cmake
 else
 	# Build the host copy of cyclonedds to allow for config and message generation
 	source ./build_host_cyclone.sh
